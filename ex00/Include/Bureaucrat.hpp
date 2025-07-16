@@ -17,16 +17,6 @@
 #include <iostream>
 #include <ostream>
 
-class GradeTooHighException : public std::exception {
-public:
-  virtual const char *what() throw();
-};
-
-class GradeTooLowException : public std::exception {
-public:
-  virtual const char *what() throw();
-};
-
 class Bureaucrat {
 public:
   Bureaucrat(void);
@@ -38,8 +28,16 @@ public:
   short get_grade(void) const;
   void inc_grade(short inc);
   void dec_grade(short dec);
-  GradeTooHighException high_excep;
-  GradeTooLowException low_excep;
+
+  class GradeTooHighException : public std::exception {
+  public:
+    virtual const char *what() throw();
+  } high_except;
+
+  class GradeTooLowException : public std::exception {
+  public:
+    virtual const char *what() throw();
+  } low_except;
 
 private:
   std::string _name;

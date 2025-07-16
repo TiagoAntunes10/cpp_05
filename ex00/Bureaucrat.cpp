@@ -12,11 +12,11 @@
 
 #include "./Include/includes.hpp"
 
-const char *GradeTooHighException::what() throw() {
+const char *Bureaucrat::GradeTooHighException::what() throw() {
   return "Grade exceeds upper bound.";
 }
 
-const char *GradeTooLowException::what() throw() {
+const char *Bureaucrat::GradeTooLowException::what() throw() {
   return "Grade exceeds lower bound.";
 }
 
@@ -28,9 +28,9 @@ Bureaucrat::Bureaucrat(void) {
 Bureaucrat::Bureaucrat(const std::string name, short grade) {
   _name = name;
   if (grade > 150)
-    throw high_excep;
+    throw low_except;
   else if (grade < 1)
-    throw low_excep;
+    throw high_except;
   _grade = grade;
 }
 
@@ -55,7 +55,7 @@ short Bureaucrat::get_grade(void) const { return _grade; }
 void Bureaucrat::inc_grade(short inc) {
   _grade -= inc;
   if (_grade < 1) {
-    throw high_excep;
+    throw high_except;
     _grade += inc;
   }
 }
@@ -63,7 +63,7 @@ void Bureaucrat::inc_grade(short inc) {
 void Bureaucrat::dec_grade(short dec) {
   _grade += dec;
   if (_grade > 150) {
-    throw low_excep;
+    throw low_except;
     _grade -= dec;
   }
 }

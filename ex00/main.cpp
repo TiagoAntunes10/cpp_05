@@ -27,20 +27,20 @@ int main() {
   try {
     try {
       Bureaucrat excep("excep", 160);
-    } catch (GradeTooLowException &l_g) {
+    } catch (Bureaucrat::GradeTooLowException &l_g) {
       std::cout << l_g.what() << std::endl;
     }
-  } catch (GradeTooHighException &h_g) {
+  } catch (Bureaucrat::GradeTooHighException &h_g) {
     std::cout << h_g.what() << std::endl;
   }
 
   try {
     try {
       Bureaucrat excep2("excep2", 0);
-    } catch (GradeTooLowException &l_g) {
+    } catch (Bureaucrat::GradeTooLowException &l_g) {
       std::cout << l_g.what() << std::endl;
     }
-  } catch (GradeTooHighException &h_g) {
+  } catch (Bureaucrat::GradeTooHighException &h_g) {
     std::cout << h_g.what() << std::endl;
   }
 }
