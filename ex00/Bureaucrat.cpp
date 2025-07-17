@@ -48,28 +48,28 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bur) {
 
 Bureaucrat::~Bureaucrat(void) { return; }
 
-std::string Bureaucrat::get_name(void) const { return _name; }
+std::string Bureaucrat::getName(void) const { return _name; }
 
-short Bureaucrat::get_grade(void) const { return _grade; }
+short Bureaucrat::getGrade(void) const { return _grade; }
 
-void Bureaucrat::inc_grade(short inc) {
+void Bureaucrat::incGrade(short inc) {
   _grade -= inc;
   if (_grade < 1) {
-    throw high_except;
     _grade += inc;
+    throw high_except;
   }
 }
 
-void Bureaucrat::dec_grade(short dec) {
+void Bureaucrat::decGrade(short dec) {
   _grade += dec;
   if (_grade > 150) {
-    throw low_except;
     _grade -= dec;
+    throw low_except;
   }
 }
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &bur) {
-  output << bur.get_name() << ", bureaucrat grade " << bur.get_grade() << "."
+  output << bur.getName() << ", bureaucrat grade " << bur.getGrade() << "."
          << std::endl;
 
   return output;

@@ -14,16 +14,28 @@
 #include "Include/includes.hpp"
 
 int main() {
+
   Bureaucrat bob("Bob", 20);
 
-  std::cout << "Name: " << bob.get_name() << std::endl;
-  std::cout << "Grade: " << bob.get_grade() << std::endl;
+  std::cout << "Name: " << bob.getName() << std::endl;
+  std::cout << "Grade: " << bob.getGrade() << std::endl;
 
-  bob.inc_grade(5);
-  std::cout << bob;
-  bob.dec_grade(2);
+  std::cout << RED << "Increasing grade by 5 test: " << END;
+  bob.incGrade(5);
   std::cout << bob;
 
+  std::cout << RED << "Decrease grade by 2 test: " << END;
+  bob.decGrade(2);
+  std::cout << bob;
+
+  std::cout << std::endl;
+  std::cout << GREEN << "Bureaucrat Grade Limit Tests" << END << std::endl
+            << END;
+  std::cout << std::endl;
+
+  std::cout << RED
+            << "Create bureaucrat with a grade that is too low test: " << END;
+  // Bureaucrat has grade too low
   try {
     try {
       Bureaucrat excep("excep", 160);
@@ -34,9 +46,39 @@ int main() {
     std::cout << h_g.what() << std::endl;
   }
 
+  std::cout << std::endl;
+  std::cout << RED << "Decrease bureaucrat's grade too much test: " << END;
+  // Bureaucrat decreases grade too much
+  try {
+    try {
+      bob.decGrade(150);
+    } catch (Bureaucrat::GradeTooLowException &l_g) {
+      std::cout << l_g.what() << std::endl;
+    }
+  } catch (Bureaucrat::GradeTooHighException &h_g) {
+    std::cout << h_g.what() << std::endl;
+  }
+
+  std::cout << std::endl;
+  std::cout << RED
+            << "Create bureaucrat with a grade that is too high test: " << END;
+  // Bureaucrat has grade too high
   try {
     try {
       Bureaucrat excep2("excep2", 0);
+    } catch (Bureaucrat::GradeTooLowException &l_g) {
+      std::cout << l_g.what() << std::endl;
+    }
+  } catch (Bureaucrat::GradeTooHighException &h_g) {
+    std::cout << h_g.what() << std::endl;
+  }
+
+  std::cout << std::endl;
+  std::cout << RED << "Increase bureaucrat's grade too much test: " << END;
+  // Bureaucrat increases grade too much
+  try {
+    try {
+      bob.incGrade(160);
     } catch (Bureaucrat::GradeTooLowException &l_g) {
       std::cout << l_g.what() << std::endl;
     }

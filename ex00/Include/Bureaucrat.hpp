@@ -24,10 +24,10 @@ public:
   Bureaucrat(const Bureaucrat &bur);
   Bureaucrat &operator=(const Bureaucrat &bur);
   ~Bureaucrat(void);
-  std::string get_name(void) const;
-  short get_grade(void) const;
-  void inc_grade(short inc);
-  void dec_grade(short dec);
+  std::string getName(void) const;
+  short getGrade(void) const;
+  void incGrade(short inc);
+  void decGrade(short dec);
 
   class GradeTooHighException : public std::exception {
   public:
