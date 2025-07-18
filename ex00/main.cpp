@@ -37,26 +37,22 @@ int main() {
             << "Create bureaucrat with a grade that is too low test: " << END;
   // Bureaucrat has grade too low
   try {
-    try {
-      Bureaucrat excep("excep", 160);
-    } catch (Bureaucrat::GradeTooLowException &l_g) {
-      std::cout << l_g.what() << std::endl;
-    }
+    Bureaucrat excep("excep", 160);
   } catch (Bureaucrat::GradeTooHighException &h_g) {
     std::cout << h_g.what() << std::endl;
+  } catch (Bureaucrat::GradeTooLowException &l_g) {
+    std::cout << l_g.what() << std::endl;
   }
 
   std::cout << std::endl;
   std::cout << RED << "Decrease bureaucrat's grade too much test: " << END;
   // Bureaucrat decreases grade too much
   try {
-    try {
-      bob.decGrade(150);
-    } catch (Bureaucrat::GradeTooLowException &l_g) {
-      std::cout << l_g.what() << std::endl;
-    }
+    bob.decGrade(150);
   } catch (Bureaucrat::GradeTooHighException &h_g) {
     std::cout << h_g.what() << std::endl;
+  } catch (Bureaucrat::GradeTooLowException &l_g) {
+    std::cout << l_g.what() << std::endl;
   }
 
   std::cout << std::endl;
@@ -64,25 +60,21 @@ int main() {
             << "Create bureaucrat with a grade that is too high test: " << END;
   // Bureaucrat has grade too high
   try {
-    try {
-      Bureaucrat excep2("excep2", 0);
-    } catch (Bureaucrat::GradeTooLowException &l_g) {
-      std::cout << l_g.what() << std::endl;
-    }
+    Bureaucrat excep2("excep2", 0);
   } catch (Bureaucrat::GradeTooHighException &h_g) {
     std::cout << h_g.what() << std::endl;
+  } catch (Bureaucrat::GradeTooLowException &l_g) {
+    std::cout << l_g.what() << std::endl;
   }
 
   std::cout << std::endl;
   std::cout << RED << "Increase bureaucrat's grade too much test: " << END;
   // Bureaucrat increases grade too much
   try {
-    try {
-      bob.incGrade(160);
-    } catch (Bureaucrat::GradeTooLowException &l_g) {
-      std::cout << l_g.what() << std::endl;
-    }
+    bob.incGrade(160);
   } catch (Bureaucrat::GradeTooHighException &h_g) {
     std::cout << h_g.what() << std::endl;
+  } catch (Bureaucrat::GradeTooLowException &l_g) {
+    std::cout << l_g.what() << std::endl;
   }
 }
