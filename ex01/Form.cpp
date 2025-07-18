@@ -64,7 +64,7 @@ short Form::getSignGrade(void) const { return _sign_grade; }
 
 short Form::getExecGrade(void) const { return _exec_grade; }
 
-void Form::beSigned(const Bureaucrat &bur) {
+void Form::beSigned(Bureaucrat const &bur) {
   if (this->getSignGrade() >= bur.getGrade())
     this->_signed = true;
   else
