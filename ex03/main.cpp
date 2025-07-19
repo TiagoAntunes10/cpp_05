@@ -21,6 +21,8 @@ static void write_title(std::string const &str, std::string const &col) {
 }
 
 static void test_form(AForm &form, Bureaucrat &bur) {
+  std::cout << CLEAR;
+  write_title(form.getName() + " Tests", GREEN);
   // Bob tries to execute form without signature
   std::cout << BLUE << bur << END << std::endl;
   std::cout << BLUE << form << END << std::endl;
@@ -36,9 +38,12 @@ static void test_form(AForm &form, Bureaucrat &bur) {
     std::cout << exc.what() << std::endl;
   }
   std::cout << std::endl;
-  std::cout << BLUE << form << END << std::endl;
-  std::cout << std::endl;
+  std::cout << BLUE << form << END << std::endl << std::flush;
+  std::cout << YELLOW << "Press Enter to continue..." << END;
+  std::cin.get();
 
+  std::cout << CLEAR;
+  write_title(form.getName() + " Tests", GREEN);
   // Bob tries to sign form without high enough grade
   std::cout << BLUE << bur << END << std::endl;
   std::cout << BLUE << form << END << std::endl;
@@ -54,9 +59,12 @@ static void test_form(AForm &form, Bureaucrat &bur) {
     std::cout << exc.what() << std::endl;
   }
   std::cout << std::endl;
-  std::cout << BLUE << form << END << std::endl;
-  std::cout << std::endl;
+  std::cout << BLUE << form << END << std::endl << std::flush;
+  std::cout << YELLOW << "Press Enter to continue..." << END;
+  std::cin.get();
 
+  std::cout << CLEAR;
+  write_title(form.getName() + " Tests", GREEN);
   // Bob tries to execute form again without signature but with permission
   std::cout << "Increasing " << bur.getName() << "'s power levels... ";
   bur.incGrade(bur.getGrade() - form.getExecGrade());
@@ -74,9 +82,12 @@ static void test_form(AForm &form, Bureaucrat &bur) {
     std::cout << exc.what() << std::endl;
   }
   std::cout << std::endl;
-  std::cout << BLUE << form << END << std::endl;
-  std::cout << std::endl;
+  std::cout << BLUE << form << END << std::endl << std::flush;
+  std::cout << YELLOW << "Press Enter to continue..." << END;
+  std::cin.get();
 
+  std::cout << CLEAR;
+  write_title(form.getName() + " Tests", GREEN);
   // Bob signs form
   std::cout << "Decreasing " << bur.getName() << "'s power levels... ";
   bur.decGrade(form.getSignGrade() - form.getExecGrade());
@@ -94,9 +105,12 @@ static void test_form(AForm &form, Bureaucrat &bur) {
     std::cout << exc.what() << std::endl;
   }
   std::cout << std::endl;
-  std::cout << BLUE << form << END << std::endl;
-  std::cout << std::endl;
+  std::cout << BLUE << form << END << std::endl << std::flush;
+  std::cout << YELLOW << "Press Enter to continue..." << END;
+  std::cin.get();
 
+  std::cout << CLEAR;
+  write_title(form.getName() + " Tests", GREEN);
   // Bob tries to execute form without permission
   std::cout << BLUE << bur << END << std::endl;
   std::cout << BLUE << form << END << std::endl;
@@ -112,9 +126,12 @@ static void test_form(AForm &form, Bureaucrat &bur) {
     std::cout << exc.what() << std::endl;
   }
   std::cout << std::endl;
-  std::cout << BLUE << form << END << std::endl;
-  std::cout << std::endl;
+  std::cout << BLUE << form << END << std::endl << std::flush;
+  std::cout << YELLOW << "Press Enter to continue..." << END;
+  std::cin.get();
 
+  std::cout << CLEAR;
+  write_title(form.getName() + " Tests", GREEN);
   // Bob executes form
   std::cout << "Increasing " << bur.getName() << "'s power levels... ";
   bur.incGrade(form.getSignGrade() - form.getExecGrade());
@@ -131,7 +148,9 @@ static void test_form(AForm &form, Bureaucrat &bur) {
     std::cout << exc.what() << std::endl;
   }
   std::cout << std::endl;
-  std::cout << BLUE << form << END << std::endl;
+  std::cout << BLUE << form << END << std::endl << std::flush;
+  std::cout << YELLOW << "Press Enter to continue..." << END;
+  std::cin.get();
 }
 
 int main() {
@@ -139,39 +158,28 @@ int main() {
   Intern intern;
   AForm *form;
 
+  std::system("CLS");
   std::cout << RED << "Form doesn't exist: " << END;
   form = intern.makeForm("Nice form", "home");
-  std::cout << std::endl << std::endl;
+  std::cout << std::flush;
   /*=================== Shrubbery Creation Form Tests =======================*/
   form = intern.makeForm("Shrubbery Creation", "home");
   if (form) {
-    write_title(form->getName() + " Tests", GREEN);
-
-    std::cout << std::endl;
     test_form(*form, bob);
-    std::cout << std::endl;
 
     delete form;
   }
   /*===================== Robotomy Request Form Tests =======================*/
   form = intern.makeForm("Robotomy Request", "bender");
   if (form) {
-    write_title(form->getName() + " Tests", GREEN);
-
-    std::cout << std::endl;
     test_form(*form, bob);
-    std::cout << std::endl;
 
     delete form;
   }
   /*=================== Presidential Pardon Form Tests ======================*/
   form = intern.makeForm("Presidential Pardon", "Fry");
   if (form) {
-    write_title(form->getName() + " Tests", GREEN);
-
-    std::cout << std::endl;
     test_form(*form, bob);
-    std::cout << std::endl;
 
     delete form;
   }
