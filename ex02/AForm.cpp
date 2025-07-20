@@ -50,10 +50,12 @@ AForm::AForm(const AForm &form) {
 }
 
 AForm &AForm::operator=(const AForm &form) {
-  _name = form.getName();
-  _signed = false;
-  _sign_grade = form.getSignGrade();
-  _exec_grade = form.getExecGrade();
+  if (_name.empty()) {
+    _name = form.getName();
+    _signed = false;
+    _sign_grade = form.getSignGrade();
+    _exec_grade = form.getExecGrade();
+  }
 
   return (*this);
 }

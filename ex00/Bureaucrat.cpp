@@ -34,13 +34,14 @@ Bureaucrat::Bureaucrat(const std::string name, short grade) {
   _grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &bur) {
+Bureaucrat::Bureaucrat(Bureaucrat const &bur) {
   _name = bur._name;
   _grade = bur._grade;
 }
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bur) {
-  _name = bur._name;
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &bur) {
+  if (_name.empty())
+    _name = bur._name;
   _grade = bur._grade;
 
   return (*this);

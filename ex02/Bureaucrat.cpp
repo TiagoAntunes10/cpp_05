@@ -41,7 +41,8 @@ Bureaucrat::Bureaucrat(Bureaucrat const &bur) {
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &bur) {
-  _name = bur.getName();
+  if (_name.empty())
+    _name = bur._name;
   _grade = bur.getGrade();
 
   return (*this);
@@ -83,7 +84,7 @@ void Bureaucrat::signForm(AForm &form) {
             << std::endl;
 }
 
-void Bureaucrat::executeForm(AForm &form) {
+void Bureaucrat::executeForm(AForm const &form) {
   try {
     form.execute(*this);
   } catch (AForm::GradeTooLowException &l_g) {

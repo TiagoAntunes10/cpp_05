@@ -18,9 +18,9 @@
 class AForm {
 public:
   AForm(void);
-  AForm(const std::string name, short sign_grade, short exec_grade);
-  AForm(const AForm &form);
-  AForm &operator=(const AForm &form);
+  AForm(std::string const name, short sign_grade, short exec_grade);
+  AForm(AForm const &form);
+  AForm &operator=(AForm const &form);
   virtual ~AForm(void);
   std::string getName(void) const;
   bool getSignStatus(void) const;

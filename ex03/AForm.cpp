@@ -42,18 +42,20 @@ AForm::AForm(const std::string name, short sign_grade, short exec_grade) {
   _exec_grade = exec_grade;
 }
 
-AForm::AForm(const AForm &form) {
+AForm::AForm(AForm const &form) {
   _name = form.getName();
   _signed = false;
   _sign_grade = form.getSignGrade();
   _exec_grade = form.getExecGrade();
 }
 
-AForm &AForm::operator=(const AForm &form) {
-  _name = form.getName();
-  _signed = false;
-  _sign_grade = form.getSignGrade();
-  _exec_grade = form.getExecGrade();
+AForm &AForm::operator=(AForm const &form) {
+  if (_name.empty()) {
+    _name = form.getName();
+    _signed = false;
+    _sign_grade = form.getSignGrade();
+    _exec_grade = form.getExecGrade();
+  }
 
   return (*this);
 }

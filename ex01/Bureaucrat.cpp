@@ -41,7 +41,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat &bur) {
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bur) {
-  _name = bur.getName();
+  if (_name.empty())
+    _name = bur._name;
   _grade = bur.getGrade();
 
   return (*this);

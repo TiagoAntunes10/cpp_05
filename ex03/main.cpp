@@ -157,10 +157,12 @@ int main() {
   Intern intern;
   AForm *form;
 
-  std::system("CLS");
+  std::cout << CLEAR;
   std::cout << RED << "Form doesn't exist: " << END;
   form = intern.makeForm("Nice form", "home");
   std::cout << std::flush;
+  std::cout << YELLOW << "Press Enter to continue..." << END;
+  std::cin.get();
   /*=================== Shrubbery Creation Form Tests =======================*/
   form = intern.makeForm("Shrubbery Creation", "home");
   if (form) {

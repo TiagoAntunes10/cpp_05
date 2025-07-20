@@ -46,10 +46,12 @@ Form::Form(const Form &form) {
 }
 
 Form &Form::operator=(const Form &form) {
-  _name = form.getName();
-  _signed = false;
-  _sign_grade = form.getSignGrade();
-  _exec_grade = form.getExecGrade();
+  if (_name.empty()) {
+    _name = form.getName();
+    _signed = false;
+    _sign_grade = form.getSignGrade();
+    _exec_grade = form.getExecGrade();
+  }
 
   return (*this);
 }

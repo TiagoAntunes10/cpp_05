@@ -20,9 +20,9 @@
 class Bureaucrat {
 public:
   Bureaucrat(void);
-  Bureaucrat(const std::string name, short grade);
-  Bureaucrat(const Bureaucrat &bur);
-  Bureaucrat &operator=(const Bureaucrat &bur);
+  Bureaucrat(std::string const name, short grade);
+  Bureaucrat(Bureaucrat const &bur);
+  Bureaucrat &operator=(Bureaucrat const &bur);
   ~Bureaucrat(void);
   std::string getName(void) const;
   short getGrade(void) const;

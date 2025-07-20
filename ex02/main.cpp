@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Include/Bureaucrat.hpp"
 #include "Include/includes.hpp"
 
 static void write_title(std::string const &str, std::string const &col) {

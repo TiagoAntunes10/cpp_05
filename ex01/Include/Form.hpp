@@ -18,9 +18,9 @@
 class Form {
 public:
   Form(void);
-  Form(const std::string name, short sign_grade, short exec_grade);
-  Form(const Form &form);
-  Form &operator=(const Form &form);
+  Form(std::string const name, short sign_grade, short exec_grade);
+  Form(Form const &form);
+  Form &operator=(Form const &form);
   ~Form(void);
   std::string getName(void) const;
   bool getSignStatus(void) const;

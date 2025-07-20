@@ -6,12 +6,11 @@
 /*   By: tialbert <tialbert@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 22:29:21 by tialbert          #+#    #+#             */
-/*   Updated: 2025/07/18 23:07:20 by tialbert         ###   ########.fr       */
+/*   Updated: 2025/07/18 23:03:04 by tialbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Include/includes.hpp"
-
 static bool isShrub(std::string const name) {
   std::string options[3] = {"Shrubbery Creation", "shrubbery creation",
                             "Shrubbery creation"};
