@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Include/PresidentialPardonForm.hpp"
+#include "Include/RobotomyRequestForm.hpp"
+#include "Include/ShrubberyCreationForm.hpp"
 #include "Include/includes.hpp"
 static bool isShrub(std::string const name) {
   std::string options[3] = {"Shrubbery Creation", "shrubbery creation",
@@ -61,24 +64,29 @@ Intern &Intern::operator=(Intern const &intern) {
 Intern::~Intern(void) { return; }
 
 static AForm *createShrub(std::string target) {
-
+  return new ShrubberyCreationForm(target);
 }
+
+static AForm *createRobot(std::string target) {
+  return new RobotomyRequestForm(target);
+}
+
+static AForm *createPardon(std::string target) {
+  return new PresidentialPardonForm(target);
+}
+
 AForm *Intern::makeForm(std::string name, std::string target) {
   AForm *form;
-	bool (*fn[])(std::string) = {*isShrub, *isRobot, *isPardon};
-	AForm (*form_fn[])(std::string) = {*ShrubberyCreationForm, *RobotomyRequestForm, *PresidentialPardonForm};
+  bool (*fn[])(std::string) = {&isShrub, &isRobot, &isPardon};
+  AForm *(*form_fn[])(std::string) = {createShrub, createRobot, createPardon};
 
-
-  if (isShrub(name))
-    form = new ShrubberyCreationForm(target);
-  else if (isRobot(name))
-    form = new RobotomyRequestForm(target);
-  else if (isPardon(name))
-    form = new PresidentialPardonForm(target);
-  else {
-    std::cout << "Error: Form not found!" << std::endl;
-    return NULL;
+  for (int i = 0; i < 3; i++) {
+    if (fn[i](name)) {
+      form = form_fn[i](target);
+      std::cout << "Intern creates " << form->getName() << std::endl;
+      return form;
+    }
   }
-  std::cout << "Intern creates " << form->getName() << std::endl;
-  return form;
+  std::cout << "Error: Form not found!" << std::endl;
+  return NULL;
 }
