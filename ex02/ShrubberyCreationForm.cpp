@@ -6,7 +6,7 @@
 /*   By: tialbert <tialbert@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:27:10 by tialbert          #+#    #+#             */
-/*   Updated: 2025/07/17 18:38:35 by tialbert         ###   ########.fr       */
+/*   Updated: 2025/07/21 12:21:54 by tialbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void) { return; }
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
   std::ofstream file;
-  const char *file_name = (_target + "_shrubbery").c_str();
+  std::string str = _target + "_shrubbery";
+  const char *file_name = str.c_str();
 
   if (!this->getSignStatus())
     throw this->not_signed_except;

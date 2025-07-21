@@ -6,21 +6,21 @@
 /*   By: tialbert <tialbert@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 15:56:58 by tialbert          #+#    #+#             */
-/*   Updated: 2025/07/17 15:57:20 by tialbert         ###   ########.fr       */
+/*   Updated: 2025/07/21 11:13:42 by tialbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Include/includes.hpp"
 
-const char *AForm::GradeTooHighException::what() throw() {
+const char *AForm::GradeTooHighException::what() const throw() {
   return "Grade is too high.";
 }
 
-const char *AForm::GradeTooLowException::what() throw() {
+const char *AForm::GradeTooLowException::what() const throw() {
   return "Grade is too low.";
 }
 
-const char *AForm::FormNotSignedException::what() throw() {
+const char *AForm::FormNotSignedException::what() const  throw() {
   return "The form is not signed.";
 }
 

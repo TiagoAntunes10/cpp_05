@@ -6,18 +6,18 @@
 /*   By: tialbert <tialbert@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 14:30:40 by tialbert          #+#    #+#             */
-/*   Updated: 2025/07/16 22:21:21 by tialbert         ###   ########.fr       */
+/*   Updated: 2025/07/21 12:25:56 by tialbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Include/Bureaucrat.hpp"
 #include "./Include/includes.hpp"
 
-const char *Bureaucrat::GradeTooHighException::what() throw() {
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
   return "Grade exceeds upper bound.";
 }
 
-const char *Bureaucrat::GradeTooLowException::what() throw() {
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
   return "Grade exceeds lower bound.";
 }
 

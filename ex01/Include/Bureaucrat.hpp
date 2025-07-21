@@ -6,7 +6,7 @@
 /*   By: tialbert <tialbert@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 14:54:22 by tialbert          #+#    #+#             */
-/*   Updated: 2025/07/16 22:38:59 by tialbert         ###   ########.fr       */
+/*   Updated: 2025/07/21 10:59:47 by tialbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ public:
 
   class GradeTooHighException : public std::exception {
   public:
-    virtual const char *what() throw();
+    virtual const char *what() const throw();
   } high_except;
 
   class GradeTooLowException : public std::exception {
   public:
-    virtual const char *what() throw();
+    virtual const char *what() const throw();
   } low_except;
 
 private:

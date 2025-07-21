@@ -6,17 +6,17 @@
 /*   By: tialbert <tialbert@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 14:30:40 by tialbert          #+#    #+#             */
-/*   Updated: 2025/07/17 14:33:23 by tialbert         ###   ########.fr       */
+/*   Updated: 2025/07/21 11:04:04 by tialbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Include/includes.hpp"
 
-const char *Form::GradeTooHighException::what() throw() {
+const char *Form::GradeTooHighException::what() const throw() {
   return "Grade is too high.";
 }
 
-const char *Form::GradeTooLowException::what() throw() {
+const char *Form::GradeTooLowException::what() const throw() {
   return "Grade is too low.";
 }
 
