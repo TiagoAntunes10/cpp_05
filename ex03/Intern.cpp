@@ -6,14 +6,27 @@
 /*   By: tialbert <tialbert@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 22:29:21 by tialbert          #+#    #+#             */
-/*   Updated: 2025/07/21 14:13:31 by tialbert         ###   ########.fr       */
+/*   Updated: 2025/07/21 14:32:08 by tialbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Include/PresidentialPardonForm.hpp"
-#include "Include/RobotomyRequestForm.hpp"
-#include "Include/ShrubberyCreationForm.hpp"
 #include "Include/includes.hpp"
+Intern::Intern(void) { return; }
+
+Intern::Intern(Intern const &intern) {
+  (void)intern;
+
+  return;
+}
+
+Intern &Intern::operator=(Intern const &intern) {
+  (void)intern;
+
+  return *this;
+}
+
+Intern::~Intern(void) { return; }
+
 static bool isShrub(std::string const name) {
   std::string options[3] = {"Shrubbery Creation", "shrubbery creation",
                             "Shrubbery creation"};
@@ -46,22 +59,6 @@ static bool isPardon(std::string const name) {
   }
   return false;
 }
-
-Intern::Intern(void) { return; }
-
-Intern::Intern(Intern const &intern) {
-  (void)intern;
-
-  return;
-}
-
-Intern &Intern::operator=(Intern const &intern) {
-  (void)intern;
-
-  return *this;
-}
-
-Intern::~Intern(void) { return; }
 
 static AForm *createShrub(std::string target) {
   return new ShrubberyCreationForm(target);
