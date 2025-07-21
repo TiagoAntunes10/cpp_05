@@ -6,7 +6,7 @@
 /*   By: tialbert <tialbert@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 22:29:21 by tialbert          #+#    #+#             */
-/*   Updated: 2025/07/21 14:06:18 by tialbert         ###   ########.fr       */
+/*   Updated: 2025/07/21 14:13:31 by tialbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,13 @@ Intern &Intern::operator=(Intern const &intern) {
 
 Intern::~Intern(void) { return; }
 
+static AForm *createShrub(std::string target) {
+
+}
 AForm *Intern::makeForm(std::string name, std::string target) {
   AForm *form;
 	bool (*fn[])(std::string) = {*isShrub, *isRobot, *isPardon};
-	AForm (*form_list[])(std::string) = {*ShrubberyCreationForm, *RobotomyRequestForm, *PresidentialPardonForm};
+	AForm (*form_fn[])(std::string) = {*ShrubberyCreationForm, *RobotomyRequestForm, *PresidentialPardonForm};
 
 
   if (isShrub(name))
